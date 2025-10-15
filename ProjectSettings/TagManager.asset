@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3155624711
+    locked: 0
+  - name: Gugu
+    uniqueID: 633564551
+    locked: 0
