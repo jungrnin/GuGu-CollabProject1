@@ -20,7 +20,6 @@ public class ObstacleManager : MonoBehaviour
 
     private float obstacleY;  //랜덤 돌려서 정할 장애물 y값
 
-    // Start is called before the first frame update
     void Start()
     {
         //배열 안에 있는 장애물들 x값 비교해서 장애물 순서대로 정렬
@@ -46,7 +45,6 @@ public class ObstacleManager : MonoBehaviour
         maxY = camera.transform.position.y + halfScreenSizeY - 3.0f;  //최대 카메라 프레임 위쪽에서 3만큼 아래
     }
 
-    // Update is called once per frame
     void Update()
     {
         //왼쪽으로 이동
