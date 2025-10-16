@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Obstacle
-  - Ground
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -43,20 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-<<<<<<< HEAD
-  - name: Back
-    uniqueID: 749515463
-    locked: 0
-  - name: Middle
-    uniqueID: 482946643
-    locked: 0
-  - name: Front
-    uniqueID: 1832967581
-=======
   - name: Background
-    uniqueID: 3155624711
+    uniqueID: 3979149809
     locked: 0
   - name: Gugu
-    uniqueID: 633564551
->>>>>>> origin/Feathre-Background
+    uniqueID: 2423418345
     locked: 0
