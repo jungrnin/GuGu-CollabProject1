@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public float deathPushBack = -2f;      //뒤로 날아가는 속도
     public float rotationSpeed = 200f;     //돌아가는 속도
 
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+
     //플레이어가 죽었는지 여부를 저장하는 함수
     private Rigidbody2D rb;
     private bool isDead = false; 
@@ -21,9 +24,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.Instance != null && GameManager.Instance.IsGameOver())
+        {
+            return;
+        }
         if (!isDead && Input.GetKeyDown(KeyCode.Space))  //스페이스바를 누르면 점프한다
         {
             rb.velocity = Vector2.up * jumpForce;
+            if(audioSource != null && jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
 
         if (isDead)
