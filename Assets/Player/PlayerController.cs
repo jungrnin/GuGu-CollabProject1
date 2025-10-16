@@ -32,17 +32,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!isDead && other.CompareTag("Obstacle"))
-        {
-            isDead = true;
-            rb.velocity = new Vector2(deathPushBack, deathBounceForce);
-            rb.gravityScale = 2f;
-            GetComponent<Collider2D>().enabled = false;
-        }
-    }
-
     // ¶¥¿¡ ´ê¾ÒÀ» ¶§ È£ÃâµÇ´Â ÇÔ¼ö
     public void DieOnGround()
     {
@@ -52,6 +41,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.gravityScale = 2f;
             Debug.Log("¶¥¿¡ ´ê¾Æ »ç¸Á Ã³¸®µÊ");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.CompareTag("Obstacle"))
+        {
+            GameManager.Instance.GameOver();
         }
     }
 

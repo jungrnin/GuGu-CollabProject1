@@ -10,7 +10,7 @@ public class ScoreCounter : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //Á¡¼ö È¹µæ
-            //GameManager.Instance.AddScore(1);
+            GameManager.Instance.AddScore(1);
         }
     }
 }

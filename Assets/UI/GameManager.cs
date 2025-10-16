@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI finalScoreText;
     public GameObject gameOverUI;
+    public GameObject anyKeyUI;
 
     private int score = 0;
     private bool isGameOver = false;
+    private bool isGameStarted = false;
 
     private void Awake()
     {
@@ -31,12 +33,29 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreUI();
         gameOverUI.SetActive(false);
-        scoreText.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+        anyKeyUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
+    private void Update()
+    {
+        if(!isGameStarted && Input.anyKeyDown)
+        {
+            StartGame();
+        }
+    }
+
+    void StartGame()
+    {
+        isGameStarted = true;
+        anyKeyUI.SetActive(false);
+        scoreText.gameObject.SetActive(true);
+        Time.timeScale = 1f;
+    }
     public void AddScore(int amount)
     {
-        if(isGameOver)
+        if(isGameOver || !isGameStarted)
         {
             return;
         }
@@ -55,11 +74,13 @@ public class GameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false);
         gameOverUI.SetActive (true);
         finalScoreText.text = "Score : " + score.ToString();
+        Time.timeScale = 0f;
         
     }
 
     public void Retry()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
