@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1741456079}
   - component: {fileID: 1741456078}
   m_Layer: 0
-  m_Name: Bird2 Black_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
